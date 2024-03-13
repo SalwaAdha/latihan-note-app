@@ -16,7 +16,7 @@
 // }
 
 import { Link, Outlet } from "react-router-dom";
-
+//ya ini
 export default function Layout(){
     return(
         <>
