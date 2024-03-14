@@ -1,34 +1,19 @@
-// import { Link, Outlet } from "react-router-dom";
-
-// export default function Layout(){
-//     return(
-//         <>
-//         <div className="flex gap-2 py-2 h=[55px] items-center justify-around bg-white">
-//             <h1>Note App</h1>
-//             <nav className="flex gap-5 items-center">
-//                 <Link to={"/Login"}><p>Login</p></Link>
-//                 <Link to={"/Registrasi"}><p>Registrasi</p></Link>
-//             </nav>
-//         </div>
-//         <Outlet/>
-//         </>
-//     );
-// }
-
 import { Link, Outlet } from "react-router-dom";
-//ya ini
-export default function Layout(){
+
+export default function Layout({token,onLogout}){
+    // INI CONTOH PERUBAHAN //
     return(
         <>
-        <div className="flex bg-indigo-200 justify-around">
-            <h1 className="font-bold text-2xl">NOTE APP</h1>
-            <nav className="flex gap-5 h-10 ">
-                <Link to={"/Login"} className="text-2xl"><span>Login</span></Link>
-                <Link to={"/registrasi"} className="text-2xl"><span>Registrasi</span></Link>
-                <Link to={"/note"} className="text-2xl"><span>Note</span></Link>
+        <div className="flex justify-around gap-2 bg-blue-200 h-[70px] py-4 text-align text-2xl ">
+            <h1>Vote</h1>
+            <nav className="flex gap-10 item-center">
+                {token !== null ? null : <Link to={'/Register'}><p className="text-black font-sans hover:text-slate-400">Registrasi</p></Link>}
+                {token !== null ? null : <Link to={'/Login'}><p className="text-black font-sans hover:text-slate-400">Login</p></Link>}
+                <Link to={"/Note"}><p className="text-black hover:text-slate-400 font-bold text-[20px]">Notes</p></Link>
+                {token !== null ? <Link onClick={() => onLogout()}><span className="text-white font-sans hover:text-slate-300">Logout</span></Link> : null}
             </nav>
         </div>
         <Outlet/>
         </>
-    );
+    )
 }

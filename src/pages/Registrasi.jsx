@@ -1,18 +1,18 @@
-function Registrasi () {
-    return (
-        <>
-            <div className="bg-gray-200 h-full min-h-screen">
-                <h1 className="text-center text-2xl p-5">Registrasi</h1>
-                <div className="container flex flex-col">
-                    <input type="text" placeholder="Nama" className="input"></input>
-                    <input type="text" placeholder="Email" className="input"></input>
-                    <input type="text" placeholder="Password" className="input"></input>
-
-                    <button className="bg-blue-500 text-white text-lg rounded-lg px-5 py-3 mt-4" >Registrasi</button>
-    
-                </div>
-            </div>
-        </>
+function Register(){
+    return(
+        <div>
+            <h1 className="text-center text-5xl p-5">Registrasi</h1>
+            <div className="createNote w-[400px] mx-auto m-10">
+          <div className='flex flex-col'>
+            <input type="text" placeholder='nama' name='nama' className='border-2 border-blue-200 p-2 mb-2' />
+            <input type="text" placeholder='email' name='email' className='border-2 border-blue-200 p-2 mb-2' />
+            <input type="text" placeholder='password' name='password' className='border-2 border-blue-200 p-2 mb-2' />
+            
+            <button type='submit' className='bg-blue-500 px-5 py-3 text-white mt-4' >Submit</button>
+          </div>
+        </div>
+        </div>
     )
 }
-export default Registrasi
+
+export default Register
