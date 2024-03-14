@@ -2,7 +2,7 @@
 import Registrasi from "./pages/Registrasi"
 import Login from "./pages/Login"
 import Note from "./Note"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Layout from "./Layout"
 import { useEffect, useState } from "react"
 import { getToken } from "./Api"
@@ -38,7 +38,7 @@ function App() {
             {
               token !== null ? null :
                 <Route>
-                  <Route path={"/Register"} element={<Register />} />
+                  <Route path={"/Registrasi"} element={<Registrasi />} />
                   <Route path={"/Login"} element={<Login onLogin={handleLogin} />} />
                 </Route>
             }

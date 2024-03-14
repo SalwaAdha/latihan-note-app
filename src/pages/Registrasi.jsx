@@ -1,4 +1,4 @@
-function Register(){
+function Registrasi(){
     return(
         <div>
             <h1 className="text-center text-5xl p-5">Registrasi</h1>
@@ -15,4 +15,4 @@ function Register(){
     )
 }
 
-export default Register
+export default Registrasi

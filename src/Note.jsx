@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NoteItem from './NoteItem';
 import { nanoid } from 'nanoid';
-import FormTambah from '../FormTambah';
+import FormTambah from './FormTambah';
 import FormEdit from './FormEdit';
 import axios from 'axios';
 // import { useState } from 'react'
