@@ -1,7 +1,7 @@
 import axios from "axios"
 import { http } from "./http"
 
-export const Logins = async (email,password) => {
+export const handleLogin = async (email,password) => {
     const data = {
         email:email,
         password:password

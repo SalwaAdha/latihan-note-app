@@ -1,13 +1,16 @@
-
 import Registrasi from "./pages/Registrasi"
 import Login from "./pages/Login"
 import Note from "./Note"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Layout from "./Layout"
 import { useEffect, useState } from "react"
-import { getToken } from "./Api"
+import { getToken } from "./api"
+import { useAuth } from "./context/Auth"
 
 function App() {
+  //panggil nilai isLoggein dari context
+  const { isLoggedin } = useAuth()
+
   const [token, setToken] = useState(null);
 
   const handleLogin = (token) => {
@@ -29,6 +32,20 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout token={token} onLogout={handleLogout} />}>
+            {isLoggedin ? (
+              <Route>
+              <Route path={"/Note"} element={<Note />} />
+              <Route path={"/Login"} element={<Navigate to = {"/Note"} />} />
+              </Route>
+            ) : (
+              <>
+                <Route path={"/Registrasi"} element={<Registrasi />} />
+                <Route path={"/Login"} element={<Login onLogin={handleLogin} />} />
+                <Route path="*" element={<Navigate to = {"/Login"} />} />
+              </>
+            )}
+          </Route>
+          {/* <Route element={<Layout token={token} onLogout={handleLogout} />}>
             {token !== null ?
               <Route>
                 <Route path={"/Note"} element={<Note />} />
@@ -43,7 +60,7 @@ function App() {
                 </Route>
             }
           </Route>
-          <Route path="*" element={<Navigate to={"/Login"} />} />
+          <Route path="*" element={<Navigate to={"/Login"} />} /> */}
         </Routes>
 
       </BrowserRouter>
